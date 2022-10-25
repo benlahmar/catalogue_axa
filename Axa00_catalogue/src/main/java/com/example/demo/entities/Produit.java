@@ -6,6 +6,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedStoredProcedureQuery;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @NamedStoredProcedureQuery(name = "Produit.getps",
 procedureName = "GetProduit",
@@ -19,6 +21,7 @@ public class Produit {
 	double prix;
 	
 	@ManyToOne()
+	@JsonIgnore
 	Categorie categorie;
 	
 	

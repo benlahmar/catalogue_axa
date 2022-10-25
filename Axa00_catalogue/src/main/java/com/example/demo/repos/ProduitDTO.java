@@ -4,7 +4,7 @@ public class ProduitDTO {
 
 	long id;
 	double prix;
-	int quantity;
+	int quanity;
 	public long getId() {
 		return id;
 	}
@@ -17,12 +17,13 @@ public class ProduitDTO {
 	public void setPrix(double prix) {
 		this.prix = prix;
 	}
-	public int getQuantity() {
-		return quantity;
+	public int getQuanity() {
+		return quanity;
 	}
-	public void setQuantity(int quantity) {
-		this.quantity = quantity;
+	public void setQuanity(int quanity) {
+		this.quanity = quanity;
 	}
+	
 	
 	
 	

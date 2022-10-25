@@ -2,6 +2,8 @@ package com.example.demo.repos;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.jpa.repository.query.Procedure;
@@ -21,7 +23,8 @@ public interface IProduit extends JpaRepository<Produit, Long>{
 	@Query("from Produit p where p.quanity<?1")
 	List<ProduitDTO> findBySeuil2(int seuil);
 	
-	@Procedure(name="GetProduit")
+	@Procedure(procedureName = "GetProduit")
+	
 	List<Produit> getprds();
 	
 	@Query(value =  "call GetProduit",nativeQuery = true)
