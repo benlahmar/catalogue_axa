@@ -13,7 +13,7 @@ public interface ICatalogue {
 
 	public Produit addProduit(Produit p, long idcat) throws Exception;
 	public List<Produit> allprd();
-	public Produit prdbyid(long id);
+	public Produit prdbyid(long id) throws Exception;
 	public List<ProduitDTO> seuil(int s);
 	public List<Produit> allprd(long idcat);
 	

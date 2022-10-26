@@ -27,6 +27,7 @@ public class CatalogueImpl implements ICatalogue{
 	
 	@Override
 	public Produit addProduit(Produit p, long idcat) throws Exception {
+		
 		 Optional<Categorie> co = crepo.findById(idcat);
 		 if(co.isPresent())
 		 {
@@ -48,9 +49,14 @@ public class CatalogueImpl implements ICatalogue{
 	}
 
 	@Override
-	public Produit prdbyid(long id) {
+	public Produit prdbyid(long id) throws Exception {
 		// TODO Auto-generated method stub
-		return prepo.findById(id).get();
+		 Optional<Produit> op = prepo.findById(id);
+		 if(op.isPresent())
+		  return op.get();
+		 else
+			 throw new Exception("not found");
+		 
 	}
 
 	@Override
@@ -67,6 +73,9 @@ public class CatalogueImpl implements ICatalogue{
 
 	@Override
 	public void addCategorie(Categorie c) {
+		//log4j	
+		//validation data
+		//
 		crepo.save(c);
 		
 	}

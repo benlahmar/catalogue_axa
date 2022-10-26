@@ -26,7 +26,7 @@ public class CatalogueApi {
 	ICatalogue cat;
 	
 	@PostMapping("/categories")
-	public ResponseEntity<Void> addcategorie(@RequestBody Categorie c)
+	public ResponseEntity<Void> abc(@RequestBody Categorie c)
 	{
 		cat.addCategorie(c);
 		return new ResponseEntity<Void>(HttpStatus.CREATED);
@@ -63,6 +63,21 @@ public class CatalogueApi {
 	public Page<Categorie> allcatp(@RequestParam(name = "q") String lib,@RequestParam int size,@RequestParam int page)
 	{
 		return cat.catLibelleLike(lib, size, page);
+	}
+	
+	@GetMapping("/produits/{idp}")
+	public ResponseEntity<Produit> findbyid(@PathVariable(name = "idp") long id)
+	{
+		Produit p;
+		try {
+			p = cat.prdbyid(id);
+			return new ResponseEntity<Produit>(p,HttpStatus.FOUND);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return new ResponseEntity<Produit>(HttpStatus.NO_CONTENT);
+		}
+		
 	}
 	
 
